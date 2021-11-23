@@ -29,9 +29,9 @@ PTT:      TETRA Radio external PTT <-> BC547 <-> RaspberryPi GPIO18
 Transistor BC 547 Level Shifter:
 
 ```
-Raspi -> R 10k -> Base
-Radio PTT -> Collector
-GND -> Emiter
+RaspberryPi GPIO18 -> R 10k -> Base
+Radio external PTT -> Collector
+GND -> Emitter
 ```
 
 ## Callflow:
