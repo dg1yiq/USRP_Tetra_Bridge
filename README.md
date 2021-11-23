@@ -20,15 +20,19 @@ Bridge between Tetra DMO Repeater (Motorola MTM5400) and Brandmeister DMR Networ
 
 ## Hardware:
 
+```
 Audio:    TETRA Radio <-> USB Soundcard <-> RaspberryPi
 Serial:   TETRA Radio PEI Serial <-> RaspberryPi Serial Port
 PTT:      TETRA Radio external PTT <-> BC547 <-> RaspberryPi GPIO18
+```
 
 Transistor BC 547 Level Shifter:
 
+```
 Raspi -> R 10k -> Base
 Radio PTT -> Collector
 GND -> Emiter
+```
 
 ## Callflow:
 
