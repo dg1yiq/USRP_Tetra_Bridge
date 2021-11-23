@@ -21,7 +21,6 @@ from time import sleep
 import socket
 import struct
 import _thread
-import shlex
 import pyaudio
 import serial
 import RPi.GPIO as GPIO
@@ -78,7 +77,7 @@ def rxAudioStream():
                         if call != '':
                            print ("(DMR -> Tetra) DMR Source-Call: %s" % call)
                     if keyup == False:
-                        print ('(DMR -> Tetra) Transmission ended - Call {} Slot {} TG {}',call, rxslot, tg)
+                        print ('(DMR -> Tetra) Transmission ended - Call %s Slot %s TG %s' % (call, rxslot, tg))
                         GPIO.output(18, GPIO.LOW)
                         call=''
                         tg = ''

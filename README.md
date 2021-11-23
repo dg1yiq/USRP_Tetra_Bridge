@@ -16,7 +16,7 @@ PERFORMANCE OF THIS SOFTWARE.
 
 ## Use:
 
-Bridge between Tetra DMO Repeater (Motorola MTM5400) and Brandmeister DMR Network
+Bridge between Tetra DMO Repeater (Motorola MTM5400) and Brandmeister DMR Network with DVSwitch
 
 ## Hardware:
 
@@ -29,6 +29,10 @@ PTT:      TETRA Radio external PTT <-> RaspberryPi GPIO18
 DMR <-> Tetra:
 
 Brandmeister <-> DVSwitch <-> Analog_Bridge <-> USRP_Tetra_Bridge.py <-> Audio <-> TETRA Radio
+
+## Python 3 requirements
+
+You will need "pyaudio"
 
 ## USRP protocol settings:
 
