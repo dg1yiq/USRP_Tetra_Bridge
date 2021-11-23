@@ -73,12 +73,12 @@ def rxAudioStream():
                     stream.write(audio, 160)
                 if (keyup != lastKey):
                     if keyup:
-                        print ("(DMR -> Tetra) Sendung gestartet...")
+                        print ("(DMR -> Tetra) Transmission started...")
                         GPIO.output(18, GPIO.HIGH)
                         if call != '':
-                           print ("(DMR -> Tetra) DMR Quell-Call: %s" % call)
+                           print ("(DMR -> Tetra) DMR Source-Call: %s" % call)
                     if keyup == False:
-                        print ('(DMR -> Tetra) Sendung beendet - Call {} Slot {} TG {}',call, rxslot, tg)
+                        print ('(DMR -> Tetra) Transmission ended - Call {} Slot {} TG {}',call, rxslot, tg)
                         GPIO.output(18, GPIO.LOW)
                         call=''
                         tg = ''
@@ -117,9 +117,9 @@ def txAudioStream():
                 udp.sendto(usrp, (ipAddress, 31001))
                 seq = seq + 1
                 if ptt==True:
-                   print ('(Tetra -> DMR) Sendung gestartet... ')
+                   print ('(Tetra -> DMR) Transmission started... ')
                 if ptt==False:
-                   print ('(Tetra -> DMR) Sendung beendet. ')
+                   print ('(Tetra -> DMR) Transmission ended. ')
             lastPtt = ptt
             if ptt:
                 usrp = b'USRP' + struct.pack('>iiiiiii',seq, 0, ptt, 0, 0, 0, 0) + audio
@@ -152,15 +152,16 @@ p = pyaudio.PyAudio()
 _thread.start_new_thread( rxAudioStream, () )
 _thread.start_new_thread( txAudioStream, () )
 
-print("Warte 3 Sekunden...")
+print("Wit 3 Sec...")
 
 sleep(1)
-print("Schalte in Repeater Mode")
+print("Switch to Repeater Mode")
 ser.write(b'AT\r\n')
+#Set CTOM=1 for DMO Mode or CTOM=6 for DMO Repeater Mode 
 ser.write(b'AT+CTOM=6\r\n')
 
 sleep(3)
-print("Aktivieren Call Controll auf PEI")
+print("Activaten Call Controll on PEI")
 ser.write(b'AT+CTSP=2,0,0\r\n')
 
 ##root.mainloop()
