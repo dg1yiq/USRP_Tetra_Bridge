@@ -37,10 +37,10 @@ and outbound ports needs to be different.
 
 Check/modify following settings in /opt/Analog_Bridge/Analog_Bridge.ini
 
-   [USRP]
-   address = 127.0.0.1
-   txPort = 31002
-   rxPort = 31001
+[USRP]
+address = 127.0.0.1
+txPort = 31002
+rxPort = 31001
 
 ALSA Audio Settimgs:
 
