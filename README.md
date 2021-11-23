@@ -14,23 +14,23 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
 OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 
-##Use:
+## Use:
 
 Bridge between Tetra DMO Repeater (Motorola MTM5400) and Brandmeister DMR Network
 
-##Hardware:
+## Hardware:
 
 Audio:    TETRA Radio <-> USB Soundcard <-> RaspberryPi
 Serial:   TETRA Radio PEI Serial <-> RaspberryPi Serial Port
 PTT:      TETRA Radio external PTT <-> RaspberryPi GPIO18
 
-##Callflow:
+## Callflow:
 
 DMR <-> Tetra:
 
 Brandmeister <-> DVSwitch <-> Analog_Bridge <-> USRP_Tetra_Bridge.py <-> Audio <-> TETRA Radio
 
-##USRP protocol settings:
+## USRP protocol settings:
 
 The USRP_Tetra_Bridge.py is using the DVSwitch USRP protocol on the SAME host. So USRP inbound
 and outbound ports needs to be different.
@@ -44,7 +44,7 @@ Check/modify following settings in /opt/Analog_Bridge/Analog_Bridge.ini
    rxPort = 31001
 ```
 
-##ALSA Audio Settimgs:
+## ALSA Audio Settimgs:
 
 To use the correct Audio Interface (USB Soundcard) you have to make it default and check
 for the correct input and output index number in functions "rxAudioStream()" and "txAudioStream()"
@@ -110,7 +110,7 @@ You will see that our created plug device "mycard" has index 3.
 
 Modify USRP_Tetra_Bridge.py and add the correct output_device_index and input_device_index.
 
-##Start System
+## Start System
 
 Start DVSwitch
 
