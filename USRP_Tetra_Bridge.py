@@ -142,6 +142,7 @@ ser = serial.Serial(
         bytesize=serial.EIGHTBITS,
         timeout=1)
 
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(18, GPIO.OUT)
 GPIO.output(18, GPIO.LOW)
