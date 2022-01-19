@@ -14,9 +14,13 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
 OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 
+## Attention:
+
+Code is obsolete, because USRP support is integrated in SVXLink Tetra Contribution!
+
 ## Use:
 
-Bridge between Tetra DMO Repeater (Motorola MTM5400) and Brandmeister DMR Network with DVSwitch
+Standalone Bridge between Tetra DMO Repeater (Motorola MTM5400) and Brandmeister DMR Network with DVSwitch
 
 ## Hardware:
 
@@ -62,7 +66,7 @@ Check/modify following settings in /opt/Analog_Bridge/Analog_Bridge.ini
 
 To use the correct Audio Interface (USB Soundcard) you have to make it default and check
 for the correct input and output index number in functions "rxAudioStream()" and "txAudioStream()"
- 
+
 First Check with command "aplay -l" the device number of you USB soundcard. Example with my
 soundcard as "Karte 1" -> "Card 1":
 
@@ -87,8 +91,8 @@ ctl.!default {
 
 pcm.mycard {
     type plug
-    slave { 
-        pcm default 
+    slave {
+        pcm default
         rate 44100
     }
 }
@@ -104,7 +108,7 @@ Python script:
 import pyaudio
 
 po = pyaudio.PyAudio()
-for index in range(po.get_device_count()): 
+for index in range(po.get_device_count()):
     desc = po.get_device_info_by_index(index)
     print ("DEVICE: {0} \t INDEX: {1} \t RATE: {2}".format(desc["name"],index,int(desc["defaultSampleRate"])))
 ```
@@ -129,6 +133,3 @@ Modify USRP_Tetra_Bridge.py and add the correct output_device_index and input_de
 Start DVSwitch
 
 Start Script
-
-
-
